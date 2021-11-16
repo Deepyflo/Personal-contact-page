@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #020106;
+  color: white;
+  margin-top: 15vh;
+}
+
+body .button {
+  color: white;
+  background-color: #5B1EE3;
+  border-color: #5B1EE3;
+  border-radius: 25rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+header {
+  background-color: #AF9DD7;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+
+header img {
+  max-width: 10vh;
+}
+
+main form {
+  border-radius: 2rem;
+  background-color: #AF9DD7;
+  margin: 15vh;
+  padding: 5vh;
+  padding-top: 2vh;
+  line-height: 2rem;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main form input, main form select {
+  background-color: #AF9DD7;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-width: 0.1rem;
+}
+
+main form h2 {
+  text-align: center;
+}
+
+main form .radioDiv {
+  color: black;
+}
+
+main form .radioDiv input {
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+
+main form .btnDiv {
+  text-align: center;
+}
+
+main .popupBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: absolute;
+  z-index: 2;
+  top: 25%;
+  left: 39%;
+  background-color: rgba(91, 30, 227, 0.9);
+  width: 330px;
+  height: 290px;
+}
+
+main .popupBox div {
+  width: 100%;
+}
+
+main .popupBox img {
+  height: 5vh;
+}
+
+footer {
+  background-color: #AF9DD7;
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
