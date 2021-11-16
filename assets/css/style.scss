@@ -67,6 +67,11 @@ main {
         .btnDiv {
             text-align: center;
         }
+        .msg {
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            overflow: scroll;
+        }
     }
     .popupBox {
         transform: scale(0);
@@ -100,7 +105,7 @@ main {
         }
     }
     .invisible {
-        animation: popupInvisible 0.1s ease 0s 1 normal forwards;
+        animation: popupInvisible 0.4s ease 0.2s 1 normal forwards;
     }
     .visible {
         animation: popupVisible 0.4s ease 0.2s 1 normal forwards;

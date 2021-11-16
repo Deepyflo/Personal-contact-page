@@ -12,7 +12,7 @@
             <h1>Florian <img src="./assets/img/logo-deep.png" alt="logo Deep_Flow"> Renders</h1>
         </header>
         <main>
-            <form action="send.php" method="post">
+            <form action="index.php" method="post">
                 <h2>Contact</h2><br>
                 <input type="text" name="name" placeholder="Name"><br>
                 <div class="radioDiv">
@@ -32,6 +32,23 @@
                 <div class="btnDiv">
                 <input type="submit" value="Send" class="button">
                 </div>
+                <?php
+                    if (isset($_GET["name"]) AND isset($_GET["mail"]) AND isset($_GET["company"]) AND isset($_GET["msg"])) {
+                        $name = filter_var($_GET["name"], FILTER_SANITIZE_STRING);
+                        $mail = filter_var($_GET["mail"], FILTER_SANITIZE_EMAIL);
+                        $company = filter_var($_GET["company"], FILTER_SANITIZE_STRING);
+                        $msg = filter_var($_GET["msg"], FILTER_SANITIZE_STRING);
+                        $gender = $_GET["gender"];
+                        $object = filter_var($_GET["object"], FILTER_SANITIZE_STRING);
+                        $me = "florianrenders@gmail.com";
+                        
+                        //mail($me, "Quelqu'un a envoyé un message via le fomrulaire de contact pour" . $object, "Quelqu'un a envoyé un message via le fomrulaire de contact pour" . $object . '/n Nom : ' . $name . '/n Mail : ' . $mail . '/n Genre : ' . $gender . '/n Companie : ' . $company . '/n Message : /n' . $msg);
+                        
+                        echo "Message correctly sended";
+                    } else {
+                        echo "Something wrong...";
+                    }
+                ?>
             </form>
             <div class="popupBox">
                 <div>
@@ -52,9 +69,6 @@
             <button id="btnPopup" class="button">Contact</button>
         </footer>
 
-        <?php
-
-        ?>
         
         <script src="./assets./js/script.js"></script>
     </body>
