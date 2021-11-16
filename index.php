@@ -35,16 +35,16 @@
             </form>
             <div class="popupBox">
                 <div>
-                    <p><img src="./assets/img/logo_git.png" alt="logo Github">Deepyflo</p>
+                    <a href="https://github.com/Deepyflo"><img src="./assets/img/logo_git.png" alt="logo Github"><span>Deepyflo</span></a>
                 </div>
                 <div>
-                    <p><img src="./assets/img/logo-linkedin.png" alt="logo Linkedin">/florian-renders-04556a21a</p>
+                    <a href="https://www.linkedin.com/in/florian-renders-04556a21a/"><img src="./assets/img/logo-linkedin.png" alt="logo Linkedin"><span>/florian-renders-04556a21a</span></a>
                 </div>
                 <div>
-                    <p><img src="./assets/img/png-clipart-gmail-gmail.png" alt="logo Gmail">florianrenders@gmail.com</p>
+                    <img src="./assets/img/png-clipart-gmail-gmail.png" alt="logo Gmail"><span>florianrenders@gmail.com</span>
                 </div>
                 <div>
-                    <p><img src="./assets/img/Discord-Logo-Black.png" alt="logo Discord">𝕯𝖊𝖊𝖕_𝕱𝖑𝖔𝖜#2500</p>
+                    <img src="./assets/img/Discord-Logo-Black.png" alt="logo Discord"><span>𝕯𝖊𝖊𝖕_𝕱𝖑𝖔𝖜#2500</span>
                 </div>
             </div>
         </main>
@@ -55,5 +55,7 @@
         <?php
 
         ?>
+        
+        <script src="./assets./js/script.js"></script>
     </body>
 </html>

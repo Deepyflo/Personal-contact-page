@@ -1,3 +1,31 @@
+@-webkit-keyframes popupInvisible {
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes popupInvisible {
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@-webkit-keyframes popupVisible {
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes popupVisible {
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -75,34 +103,64 @@ main form .btnDiv {
 }
 
 main .popupBox {
+  -webkit-transform: scale(0);
+          transform: scale(0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   z-index: 2;
   top: 25%;
-  left: 39%;
-  background-color: rgba(91, 30, 227, 0.9);
+  left: 38%;
+  background-color: rgba(91, 30, 227, 0.8);
   width: 330px;
   height: 290px;
+  border-radius: 1rem;
+}
+
+main .popupBox a {
+  text-decoration: none;
+  color: white;
+}
+
+main .popupBox a:visited {
+  color: white;
+  text-decoration: none;
 }
 
 main .popupBox div {
   width: 100%;
+  text-align: center;
 }
 
 main .popupBox img {
   height: 5vh;
+  vertical-align: middle;
+  padding-right: 2rem;
+}
+
+main .invisible {
+  -webkit-animation: popupInvisible 0.1s ease 0s 1 normal forwards;
+          animation: popupInvisible 0.1s ease 0s 1 normal forwards;
+}
+
+main .visible {
+  -webkit-animation: popupVisible 0.4s ease 0.2s 1 normal forwards;
+          animation: popupVisible 0.4s ease 0.2s 1 normal forwards;
 }
 
 footer {
   background-color: #AF9DD7;
-  height: 10vh;
+  height: 8vh;
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
+  padding-top: 3vh;
 }
 /*# sourceMappingURL=style.css.map */

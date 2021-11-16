@@ -1,3 +1,13 @@
+@keyframes popupInvisible {
+    to {
+        transform: scale(0);
+    }
+}
+@keyframes popupVisible {
+    to {
+        transform: scale(1);
+    }
+}
 * {
     margin: 0;
     padding: 0;
@@ -59,29 +69,49 @@ main {
         }
     }
     .popupBox {
-        // visibility: hidden;
+        transform: scale(0);
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         position:absolute;
         z-index: 2;
         top: 25%;
-        left:39%;
-        background-color: rgba(91, 30, 227, 0.9);
+        left:38%;
+        background-color: rgba(91, 30, 227, 0.8);
         width: 330px;
         height: 290px;
+        border-radius: 1rem;
+        a {
+            text-decoration: none;
+            color: white;
+            &:visited {
+                color: white;
+                text-decoration: none;
+            }
+        }
         div {
             width: 100%;
+            text-align: center;
         }
         img {
             height: 5vh;
+            vertical-align: middle;
+            padding-right: 2rem;
         }
+    }
+    .invisible {
+        animation: popupInvisible 0.1s ease 0s 1 normal forwards;
+    }
+    .visible {
+        animation: popupVisible 0.4s ease 0.2s 1 normal forwards;
     }
 }
 footer {
     background-color: #AF9DD7;
-    height: 10vh;
+    height: 8vh;
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
+    padding-top: 3vh;
 }
