@@ -33,17 +33,63 @@
                 <input type="submit" value="Send" class="button">
                 </div>
                 <?php
-                    if (isset($_GET["name"]) AND isset($_GET["mail"]) AND isset($_GET["company"]) AND isset($_GET["msg"])) {
-                        $name = filter_var($_GET["name"], FILTER_SANITIZE_STRING);
-                        $mail = filter_var($_GET["mail"], FILTER_SANITIZE_EMAIL);
-                        $company = filter_var($_GET["company"], FILTER_SANITIZE_STRING);
-                        $msg = filter_var($_GET["msg"], FILTER_SANITIZE_STRING);
-                        $gender = $_GET["gender"];
-                        $object = filter_var($_GET["object"], FILTER_SANITIZE_STRING);
+                    if (isset($_POST["name"]) AND isset($_POST["mail"]) AND isset($_POST["company"]) AND isset($_POST["msg"])) {
+                        $name = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
+                        $mail = filter_var($_POST["mail"], FILTER_SANITIZE_EMAIL);
+                        $company = filter_var($_POST["company"], FILTER_SANITIZE_STRING);
+                        $msg = filter_var($_POST["msg"], FILTER_SANITIZE_STRING);
+                        $gender = $_POST["gender"];
+                        $object = filter_var($_POST["object"], FILTER_SANITIZE_STRING);
                         $me = "florianrenders@gmail.com";
                         
                         //mail($me, "Quelqu'un a envoyé un message via le fomrulaire de contact pour" . $object, "Quelqu'un a envoyé un message via le fomrulaire de contact pour" . $object . '/n Nom : ' . $name . '/n Mail : ' . $mail . '/n Genre : ' . $gender . '/n Companie : ' . $company . '/n Message : /n' . $msg);
                         
+                        //Import PHPMailer classes into the global namespace
+                        //These must be at the top of your script, not inside a function
+                        use PHPMailer\PHPMailer\PHPMailer;
+                        use PHPMailer\PHPMailer\SMTP;
+                        use PHPMailer\PHPMailer\Exception;
+
+                        require './PHPMailer-master/src/Exception.php';
+                        require './PHPMailer-master/src/PHPMailer.php';
+                        require './PHPMailer-master/src/SMTP.php';
+
+                        //Create an instance; passing `true` enables exceptions
+                        $mail = new PHPMailer(true);
+
+                        try {
+                            //Server settings
+                            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                            $mail->isSMTP();
+                            $mail->Host = 'smtp.mailtrap.io';
+                            $mail->SMTPAuth = true;
+                            $mail->Port = 2525;
+                            $mail->Username = 'e7837e8788f36d';
+                            $mail->Password = 'eab9cf82629c3c';                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                            //Recipients
+                            $mail->setFrom('from@example.com', 'Mailer');
+                            $mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
+                            $mail->addAddress('ellen@example.com');               //Name is optional
+                            $mail->addReplyTo('info@example.com', 'Information');
+                            $mail->addCC('cc@example.com');
+                            $mail->addBCC('bcc@example.com');
+
+                            //Attachments
+                            $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+                            //Content
+                            $mail->isHTML(true);                                  //Set email format to HTML
+                            $mail->Subject = 'Here is the subject';
+                            $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+                            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                            $mail->send();
+                            echo 'Message has been sent';
+                        } catch (Exception $e) {
+                            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                        }
                         echo "Message correctly sended";
                     } else {
                         echo "Something wrong...";
@@ -70,6 +116,6 @@
         </footer>
 
         
-        <script src="./assets./js/script.js"></script>
+        <script src="./assets/js/script.js"></script>
     </body>
 </html>
